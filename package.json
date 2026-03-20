@@ -6,6 +6,7 @@
   "scripts": {
     "postinstall": "node scripts/patchPackages.js",
     "build": "webpack --config webpack.prod.js",
+    "build:gh-pages": "NODE_OPTIONS='--max-old-space-size=3072' webpack --config webpack.prod.js --stats errors-only",
     "build-dev": "webpack --config webpack.dev.js",
     "start": "node --max-old-space-size=8192 server.js 8080 dev",
     "prod-start": "node server.js",
@@ -18,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PrismarineJS/prismarine-web-client.git"
+    "url": "git+https://github.com"
   },
   "keywords": [
     "prismarine",
@@ -30,10 +31,6 @@
   "bin": {
     "prismarine-web-client": "./server.js"
   },
-  "bugs": {
-    "url": "https://github.com/PrismarineJS/prismarine-web-client/issues"
-  },
-  "homepage": "https://github.com/PrismarineJS/prismarine-web-client#readme",
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
@@ -41,7 +38,8 @@
     "lit": "^2.0.2",
     "net-browserify": "PrismarineJS/net-browserify",
     "querystring": "^0.2.1",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "vm-browserify": "^1.1.2"
   },
   "devDependencies": {
     "assert": "^2.0.0",
@@ -67,6 +65,7 @@
     "process": "PrismarineJS/node-process",
     "standard": "^17.0.0",
     "stream-browserify": "^3.0.0",
+    "terser-webpack-plugin": "^5.3.9",
     "three": "0.127.0",
     "timers-browserify": "^2.0.12",
     "webpack": "^5.11.0",
